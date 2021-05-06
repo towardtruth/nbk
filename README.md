@@ -1,5 +1,5 @@
 # NBK (Naive Bayes k-mer model)
-
+Predicting tissue specific mRNA and protein abundance in maize: A machine learning approach.
 
 ## Files & Direcoties structures
 
