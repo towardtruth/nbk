@@ -31,6 +31,11 @@ nbk/
 
 ```
 
+### gene_prediction.py
+```
+Main program for predicting mRNA and protein abundance (gene expression)
+```
+
 
 ### build_datasets.py
 
@@ -136,7 +141,6 @@ nbk/
 ```
 
 ### GeneGroups.py
-### gene_prediction.py
 
 ### KmerInterval.py
 ```
