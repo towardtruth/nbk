@@ -142,50 +142,6 @@ Main program for predicting mRNA and protein abundance (gene expression)
 
 ### GeneGroups.py
 
-### KmerInterval.py
-```
-K-mer Interval
-  TODO: Refactorization needed
-    1. change package file name to KmerDistance.py
-    2. re-design classes hierachy
-      - add KmerDistance class
-      - refactorization package structure
-
-Classes
-  PositionVector class
-    methods:
-      __init__(self, seq=None, kmer=None)
-      __len__(self)
-      has_same_content(self, other)
-      get_pos_vector(self)
-      _get_pos_vector(self)
-
-  IntervalVector class
-    methods:
-      __init__(self, pos_vector1=None, pos_vector2=None)
-      get_interval_vector(self)
-      _pick_intv_pos(self, pv1=None, pv2=None)
-
-  KmPosVector class
-    methods:
-      __init__(self, type=None, pos=None)
-
-  MergePositionVector class
-    methods:
-      __init__(self, pv1=None, pv2=None)
-      _merge_pos_vectors(self, pv1=None, pv2=None)
-      merge(self)
-      value(self, type=None)
-      distance_vector(self) - TODO: implimentation
-      get_cursor(self)
-      get_current_pos(self)
-      move_next(self)
-      build_interval_vector(self) - TODO: implimentation
-      _test_print_merge_pos_vector(self, merged_pos_vector=None)
-      test_show_content(self)
-
-```
-
 
 
 
