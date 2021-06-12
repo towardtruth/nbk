@@ -148,7 +148,6 @@ class Features(object):
     def get_feature(self, idx):
         return self.features[idx]
 
-    #def _init_features(self, target_features=None):
     def _init_features(self):
         '''
         Initialize features with target features
@@ -271,28 +270,7 @@ class Features(object):
         return Pgsql.Common.to_list(res)
 
     def _set_features(self, test_mode=False):
-        #if self.exp_setting.get_fsid() == 0:
-        #    pass
-
-        #assigned_genes_limit = [8294, 2189, 4378,
-        #                        1300, 1321,  685, 1001,  958, 1147,  869, 1185,  322, 1451,
-        #                        1185,  943,  895, 1062, 1017,  589, 1329, 1389, 1375, 1233,
-        #                        1353, 1379, 1232]
         assigned_genes_limit = self.exp_setting.get_assigned_genes_limit()
-        #assigned_genes_limit = [int(10 + pow(x, 2.96)) for x in range(1, 24)]
-        #assigned_genes_limit = [int(10) for x in range(1, 24)]
-        #assigned_genes_limit = [int(x*10) for x in range(1, 24)]
-        #assigned_genes_limit = [int((x+23)*10) for x in range(1, 24)]
-        #assigned_genes_limit = [int((x+23*2)*10) for x in range(1, 24)]
-        #assigned_genes_limit = [int((x+23*3)*10) for x in range(1, 24)]
-        #assigned_genes_limit = [int((x+23*4)*10) for x in range(1, 24)]
-        #assigned_genes_limit = [int((x+23*5)*10) for x in range(1, 24)]
-        #assigned_genes_limit = [int((x+23*6)*10) for x in range(1, 24)]
-        #assigned_genes_limit = [int((x+23*7)*10) for x in range(1, 24)]
-        #assigned_genes_limit = [int((x+23*8)*10) for x in range(1, 24)]
-        #assigned_genes_limit = [int((x+23*9)*10) for x in range(1, 24)]
-        #assigned_genes_limit = [int((x+23*10)*10) for x in range(1, 24)]
-        #assigned_genes_limit = [int(x*500) for x in range(1, 24)]
 
         for idx, feature in enumerate(self.features):
             if feature is not None:
@@ -331,13 +309,6 @@ class Features(object):
                                              class_size=self.exp_setting.get_class_size(),
                                              assigned_genes=assigned_gene,
                                              corresp_tissue=corresp_tissue)
-
-    #def set_feature_dataset(self, wd_all_gnids=None, fold_size=None):
-    #
-    #    for feature in self:
-    #        #print(feature.name)
-    #        feature.set_dataset(wd_all_gnids=wd_all_gnids, fold_size=fold_size)
-
 
     ###########################################################################
     #

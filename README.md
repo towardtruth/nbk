@@ -141,8 +141,79 @@ Main program for predicting mRNA and protein abundance (gene expression)
 ```
 
 ### GeneGroups.py
-
-
+```
+    A gene group can be defined by tissues and abundance cutoffs.
+    
+    FeatureSet class
+      methods:
+        __init__(self, name=None, fsid=None, label_data_type=None, description=None,
+                 class_size=None, features=None, tissues=None)
+        _set(self, name=None, fsid=None, label_data_type=None, description=None,
+             class_size=None, features=None, tissues=None)
+        get(fsid=None)
+        tissues(fsid=None)
+        exp_level(self)
+        exp_type(self)
+        
+    Features class
+      methods:
+        __init__(self, target_features=None, gnid_min_max=None, test_mode=False, 
+                 exp_setting=None)
+        __iter__(self)
+        __next__(self)
+        __len__(self)
+        get_features(self)
+        get_target_features(self)
+        get_feature(self, idx)
+        _init_features(self)
+        get_gnids_pos(fsid=None, tid=None, cur=None)
+        get_gsids_pos(gnids=None, seq_type=None, get_max_len=True, cur=None)
+        get_gnids_neg(feature_set_id=None, seq_type=None, label_type=None, tissue_id=None, 
+                      exclusive_gnids=None, size=None)
+        remove_missing_gnids(self, gnids)
+        get_exclusive_gnids(self, gnids, missing_gnids)
+        get_missing_gnids_in_promoter()
+        _set_features(self, test_mode=False)
+      staticmethods:
+        _low_gene_exp(sql=None)
+        _new_feature_group(feature_code=None, class_size=2, sql=None, description=None, 
+                           corresp_tissue=None, gene_prot='g')
+        _new_features(fsid=None, feature_code=None, sql=None, description=None, 
+                      corresp_tissue=None, gene_prot='g')
+        gene_low_exp()
+        gene_high_exp()
+        gene_high_exp_t10()  - for TEST only
+        gene_tissues()
+        prot_tissues(gene_prot=None, class_size=2, fsid=None)
+        class_assign_tissues(gene_prot=None, fsid=None)
+        class_assign_hglp(gp_type=None, fsid=None)
+        class_assign_by_percentile(fsid=None, gp_type=None, percentile=None, is_top=True)
+        class_assign_gp_comb(comb_conf=None, exp_setting=None)
+        class_assign_GE_N90(gp_type=None, fsid=None)  - for TEST only
+        class_assign_PA_N90(gp_type=None, fsid=None)  - for TEST only
+        add_new_feature_set(fs_name, gp_type, description, class_size)
+        get_cutoff(gene_prot)
+        
+    Genes class
+        __init__(self, gene_ids=None, seq_type='p', k=3)
+        __iter__(self)
+        __len__(self)
+        _set_genes(self, gene_ids)
+        get_gene(self, gnid=None)
+    
+    FreqDictSet class
+        __init__(self)
+        _init_fd_fold(self)
+        _assert_k(self, k=None)
+        append_kmer_dict(self, k=None, freq_dict=None)
+        set_fd_fold(self, fd_fold=None, k=None)
+        get_fd_fold(self, k=None, fold_idx=None)
+        get_fd_class(self, k=None)
+        get_fd_complement(self, k=None, fold_idx=None)
+    
+    Partition class - NOT USED
+    
+```
 
 
 ### models.py
@@ -203,15 +274,17 @@ models
   Cutoff class
   Cutoffs class
   CombConf class
-
-
 ```
 
-
-
-### ResultsManager.py
 ### settings.py
+```
+    Manage all environmental variables in whole program wide
+```
+
 ### sqls.py
+```
+    Manage all SQL queries used in the program
+```
 
 
 ### Validation.py
@@ -236,6 +309,7 @@ Validation package
       test_datasets(self)
       validation(self)
       get_fold_size(self)
+      
   SmallValidation class - NOT USED
 ```
 
